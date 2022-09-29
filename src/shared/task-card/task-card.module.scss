@@ -1,0 +1,61 @@
+.container {
+  background: #e2e2e2;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 225px;
+  padding: 18px 19px 16px 24px;
+  margin-right: 16px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 49px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  max-width: 150px;
+  word-wrap: break-word;
+  margin-right: 3px;
+}
+.threePoints {
+}
+
+.lockContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lock {
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.circle {
+  background: #c4c4c4;
+  border-radius: 10px;
+  width: 16px;
+  height: 16px;
+  margin-right: 9px;
+}
+
+.name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: right;
+  color: #575757;
+}

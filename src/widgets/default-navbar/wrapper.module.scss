@@ -1,0 +1,56 @@
+.background {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 85px 124px 10px 79px;
+}
+.link {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 22px;
+  text-decoration: none;
+
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.linkActive {
+  font-weight: 600;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 159px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 22px;
+  font-family: "Roboto";
+  width: 111px;
+  text-align: left;
+  padding: 2px 2px;
+}
+
+.plus {
+  position: absolute;
+  top: 3px;
+  left: 110px;
+}
+
+.main {
+  background: #d8fbff;
+  padding-top: 85px;
+  padding-left: 79px;
+  width: 60%;
+}

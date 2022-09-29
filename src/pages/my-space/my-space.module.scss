@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 56px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: scroll;
+}

@@ -1,15 +1,28 @@
-import { Login } from "../pages/login-page/login";
-import { Registration } from "../pages/registration-page/registration";
-import { TasksPage } from "../pages/tasks-page/tasks-page";
+import { ReactNode } from "react";
+import {
+  Login,
+  MySpace,
+  NotFound,
+  Profile,
+  Registration,
+  SearchSpace,
+  Spaces,
+} from "./../pages/index";
 
 interface Route {
   path: string;
-  component: ;
-  exact: boolean;
+  element: ReactNode;
 }
 
-export const routes: Array<Route> = [
-  { path: "/login", component: Login, exact: true },
-  { path: "/registration", component: Registration, exact: true },
-  { path: "/tasks", component: TasksPage, exact: true },
+export const publicRoutes: Array<Route> = [
+  { path: "/", element: <Spaces /> },
+  { path: "/login", element: <Login /> },
+  { path: "/registration", element: <Registration /> },
+  { path: "/spaces", element: <Spaces /> },
+  { path: "/myspace", element: <MySpace /> },
+  { path: "/profile", element: <Profile /> },
+  { path: "/search", element: <SearchSpace /> },
+  { path: "*", element: <NotFound /> },
 ];
+
+export const privateRoutes: Array<Route> = [];
