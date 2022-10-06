@@ -42,7 +42,7 @@ export const PopupProvider = ({ children }: Props) => {
               {component && (
                 <div className={styles.popup}>
                   <button className={styles.close} onClick={closePopup}>
-                    close
+                    <div className={styles.cross} />
                   </button>
                   {component}
                 </div>

@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 22px;
+}
+.delete {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  background: none;
+  border: none;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  background: #e3e3e3;
+  border-radius: 8px;
+  padding: 16px 22px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 14px;
+  width: 360px;
+}
+.save {
+  background: #727272;
+  border-radius: 8px;
+  padding: 11px 70px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  margin: 0 auto;
+
+  color: #ffffff;
+}
+
+.addTag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.addTagInput {
+  background: #e3e3e3;
+  border-radius: 8px;
+  padding: 10px 10px;
+  width: 360px;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.buttonAddTag {
+  background: #dbdbdb;
+  border-radius: 17px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  padding: 9px 17px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.buttonAddTagActive {
+  background: #bdbdbd;
+}
+.type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}

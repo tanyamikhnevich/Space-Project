@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import {
+  Authorization,
   Login,
   MySpace,
   NotFound,
@@ -16,8 +17,9 @@ interface Route {
 
 export const publicRoutes: Array<Route> = [
   { path: "/", element: <Spaces /> },
-  { path: "/login", element: <Login /> },
-  { path: "/registration", element: <Registration /> },
+  // { path: "/login", element: <Login /> },
+  { path: "/auth", element: <Authorization /> },
+  // { path: "/registration", element: <Registration /> },
   { path: "/spaces", element: <Spaces /> },
   { path: "/myspace", element: <MySpace /> },
   { path: "/profile", element: <Profile /> },

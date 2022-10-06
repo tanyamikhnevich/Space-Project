@@ -3,15 +3,22 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { App } from "./app/app";
+import { PopupProvider } from "./features/popup";
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <PopupProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PopupProvider>
+    </Provider>
   </React.StrictMode>
 );
 

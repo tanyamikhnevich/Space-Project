@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.name {
+  background: #e7e7e7;
+  border-radius: 4px;
+  padding: 10px 39px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.button {
+  background: #727272;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

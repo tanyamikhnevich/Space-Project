@@ -1,0 +1,48 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #0e1b21;
+  margin-bottom: 20px;
+}
+
+.email {
+  background: #f1f3f4;
+  border: 1px solid #d7dddf;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #8e9ea4;
+  margin-bottom: 80px;
+}
+
+.button {
+  background: #29424c;
+  border-radius: 8px;
+  padding: 14px 22px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.registration {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #778795;
+}

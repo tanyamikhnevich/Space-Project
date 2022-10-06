@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as ThreePoints } from "../assets/threePoints.svg";
 import { ReactComponent as Lock } from "../assets/lock.svg";
 import { ReactComponent as Unlock } from "../assets/unlock.svg";
-import styles from "./task-card.module.scss";
+import styles from "./space-card.module.scss";
 
 interface Props {
   name: string;
@@ -11,7 +11,7 @@ interface Props {
   isEditable?: boolean;
 }
 
-export const TaskCard = ({
+export const SpaceCard = ({
   name,
   username = "",
   isPublic,
@@ -39,7 +39,6 @@ export const TaskCard = ({
         )}
         {username && (
           <div className={styles.nameContainer}>
-            <div className={styles.circle} />
             <div className={styles.name}>{username}</div>
           </div>
         )}

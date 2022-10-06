@@ -3,7 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import styles from "./wrapper.module.scss";
 import classNames from "classnames";
 import { ReactComponent as Plus } from "../../shared/assets/plus.svg";
-import { usePopup } from "../../features/popup/use-popup";
+import { usePopup } from "../../features/popup";
+import { SpaceForm } from "../space-form/space-form";
 
 interface Props {
   children: ReactNode;
@@ -33,10 +34,9 @@ export const Wrapper = ({ children }: Props) => {
             {link.title}
           </NavLink>
         ))}
-        <button onClick={() => openPopup(<div>hello</div>)}>add</button>
         <button
           className={styles.buttonContainer}
-          onClick={() => openPopup(<div>hello</div>)}
+          onClick={() => openPopup(<SpaceForm />)}
         >
           <div className={styles.button}>Create space</div>
           <div className={styles.plus}>
