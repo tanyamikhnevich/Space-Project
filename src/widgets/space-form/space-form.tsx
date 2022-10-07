@@ -7,7 +7,7 @@ import { Member } from "./member";
 import { Tag } from "./tag";
 import { useAppDispatch } from "../../features/hooks/hooks";
 import classNames from "classnames";
-import { addSpaces } from "../../store/spaceSlice";
+import { addSpaces } from "../../store/spaces/space-slice";
 
 interface Values {
   name: string;

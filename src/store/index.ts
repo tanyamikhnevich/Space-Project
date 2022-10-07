@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import spaceReducer from "./spaceSlice";
+import authSlice from "./auth/auth-slice";
+import spaceReducer from "./spaces/space-slice";
+import registerSlice from "./register/registerSlice";
 
 const store = configureStore({
   reducer: {
     spaces: spaceReducer,
+    auth: authSlice,
+    register: registerSlice,
   },
 });
 
