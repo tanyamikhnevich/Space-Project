@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { login, LoginResponse } from "./action-creators";
 
-interface UserI {
+export interface UserI {
   username: string;
   email: string;
   role: "ROLE_USER" | "ROLE_ADMIN";
@@ -24,8 +24,12 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setup(state, action: PayloadAction<Pick<LoginResponse, "user">>) {
-      state.user = action.payload.user;
+    setup(state, action: PayloadAction<LoginResponse["user"]>) {
+      state.user = action.payload;
+    },
+    logout(state) {
+      state.user = null;
+      localStorage.clear();
     },
   },
   extraReducers: {
@@ -44,6 +48,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { setup } = authSlice.actions;
+export const { setup, logout } = authSlice.actions;
 
 export default authSlice.reducer;

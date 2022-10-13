@@ -4,10 +4,12 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import styles from "./space-form.module.scss";
 import { Member } from "./member";
-import { Tag } from "./tag";
+import { Tag } from "../tags/tag";
 import { useAppDispatch } from "../../features/hooks/hooks";
 import classNames from "classnames";
 import { addSpaces } from "../../store/spaces/space-slice";
+import { yourSpaces } from "../../store/spaces/action-creators";
+import { AddTag } from "../tags/add-tag";
 
 interface Values {
   name: string;
@@ -31,7 +33,7 @@ export const SpaceForm = () => {
     dispatch(
       addSpaces({
         name: values.name,
-        is_public: isPublic,
+        isPublic: isPublic,
       })
     );
     setSubmitting(false);
@@ -68,14 +70,11 @@ export const SpaceForm = () => {
               <h2 className={styles.delete}>Members</h2>
               <Member email="sveta@mail.ru" username="Svetlana" />
               <Member email="sveta@mail.ru" username="Svetlana" />
-              <Member email="sveta@mail.ru" username="Svetlana" />
 
               <h2 className={styles.delete}>Tags</h2>
               <div className={styles.addTag}>
                 <input className={styles.addTagInput} placeholder="Tag" />
-                <button type="button" className={styles.buttonAddTag}>
-                  Add Tag
-                </button>
+                <AddTag />
               </div>
               <div className={styles.tags}>
                 <Tag tag={"Tag"} />
@@ -88,8 +87,8 @@ export const SpaceForm = () => {
                 <button
                   type="button"
                   className={classNames(
-                    styles.buttonAddTag,
-                    !isPublic && styles.buttonAddTagActive
+                    styles.button,
+                    !isPublic && styles.buttonActive
                   )}
                   onClick={() => setIsPublic(false)}
                 >
@@ -98,8 +97,8 @@ export const SpaceForm = () => {
                 <button
                   type="button"
                   className={classNames(
-                    styles.buttonAddTag,
-                    isPublic && styles.buttonAddTagActive
+                    styles.button,
+                    isPublic && styles.buttonActive
                   )}
                   onClick={() => setIsPublic(true)}
                 >

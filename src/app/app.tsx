@@ -6,10 +6,13 @@ import { privateRoutes, publicRoutes } from "../features/routing/router";
 import { useAppDispatch, useAppSelector } from "features/hooks/hooks";
 import { setup } from "../store/auth/auth-slice";
 import { api } from "../shared/api/api";
+import { Routing } from "../features/routing/routing";
 
 export const App = () => {
   const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
+
+  //когда логаут нужно отчистить стейт и локалсторадж(загуглить)
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -24,23 +27,11 @@ export const App = () => {
   return (
     <div className={styles.background}>
       <div className={styles.container}>
-        <Routes>
-          {!user
-            ? publicRoutes.map((route) => (
-                <Route
-                  key={route.path}
-                  element={route.element}
-                  path={route.path}
-                />
-              ))
-            : privateRoutes.map((route) => (
-                <Route
-                  key={route.path}
-                  element={route.element}
-                  path={route.path}
-                />
-              ))}
-        </Routes>
+        {user ? (
+          <Routing routes={privateRoutes} />
+        ) : (
+          <Routing routes={publicRoutes} />
+        )}
       </div>
     </div>
   );

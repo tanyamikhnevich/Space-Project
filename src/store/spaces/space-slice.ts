@@ -1,31 +1,57 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { yourSpaces, yourSpacesResponse } from "./action-creators";
 
-interface OneSpaceI {
-  space_id: string;
+export interface OneSpaceI {
+  id: string;
   name: string;
-  is_public: boolean;
+  isPublic: boolean;
   username?: string;
 }
 
 interface SpacesStateI {
-  spaces: OneSpaceI[];
+  yourSpaces: OneSpaceI[];
+  isLoading: boolean;
+  error: string;
+  additionalSpaces: OneSpaceI[];
+  requestSpaces: OneSpaceI[];
 }
 
 const initialState: SpacesStateI = {
-  spaces: [],
+  yourSpaces: [],
+  additionalSpaces: [],
+  requestSpaces: [],
+  isLoading: false,
+  error: "",
 };
 
 const spaceSlice = createSlice({
   name: "addSpace",
   initialState,
   reducers: {
-    addSpaces(state, action: PayloadAction<Omit<OneSpaceI, "space_id">>) {
-      state.spaces.push({
-        space_id: new Date().toISOString(),
+    addSpaces(state, action: PayloadAction<Omit<OneSpaceI, "id">>) {
+      state.yourSpaces.push({
+        id: new Date().toISOString(),
         name: action.payload.name,
-        is_public: action.payload.is_public,
+        isPublic: action.payload.isPublic,
       });
     },
+  },
+  extraReducers: {
+    [yourSpaces.pending.type]: (state) => {
+      state.isLoading = true;
+    }, //isLoading
+    [yourSpaces.fulfilled.type]: (
+      state,
+      action: PayloadAction<Array<yourSpacesResponse>>
+    ) => {
+      state.isLoading = false;
+      state.error = "";
+      state.additionalSpaces = action.payload;
+    }, //success
+    [yourSpaces.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    }, //error
   },
 });
 

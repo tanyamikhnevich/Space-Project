@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 20px;
+  width: 80%;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.email {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  background: #eaeaea;
+  border-radius: 26px;
+  padding: 10px 50px;
+}
+
+.logOut {
+  background: #bdbdbd;
+  border-radius: 17px;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  border: none;
+  margin-bottom: 20px;
+}

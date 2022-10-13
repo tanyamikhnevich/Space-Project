@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 37px;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  padding: 17px 24px;
+  background: #ededed;
+  border-radius: 8px;
+  border: none;
+  margin-right: 19px;
+}
+
+.spaces {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 850px;
+  max-height: 700px;
+  overflow-y: hidden;
+}
