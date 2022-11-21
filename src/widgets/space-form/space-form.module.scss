@@ -58,25 +58,6 @@
   color: #ffffff;
 }
 
-.addTag {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.addTagInput {
-  background: #e3e3e3;
-  border-radius: 8px;
-  padding: 10px 10px;
-  width: 360px;
-}
-.tags {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
 .button {
   background: #dbdbdb;
   border-radius: 17px;
@@ -95,10 +76,4 @@
 }
 .buttonActive {
   background: #bdbdbd;
-}
-.type {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 10px;
 }

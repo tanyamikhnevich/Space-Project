@@ -1,5 +1,4 @@
 export { Login } from "./login/login";
-export { MySpace } from "./my-space/my-space";
 export { Spaces } from "./spaces/spaces";
 export { SearchSpace } from "./search-space/search-space";
 export { Registration } from "./registration/registration";

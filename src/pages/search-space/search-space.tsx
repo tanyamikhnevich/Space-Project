@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import { Wrapper } from "../../widgets/default-navbar/wrapper";
 import { SpaceCard } from "../../shared/space-card/space-card";
+import { Tag } from "../../widgets/tags-block/tags/tag";
+import { AddTag } from "../../widgets/tags-block/tags/add-tag";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../features/hooks/use-app-dispatch";
+import { searchSpaces as searchSpacesCreator } from "../../store/spaces/action-creators";
+
 import styles from "./search-space.module.scss";
-import { Tag } from "../../widgets/tags/tag";
-import { AddTag } from "../../widgets/tags/add-tag";
+import { Loading } from "../../widgets/loading/loading";
 
 export const SearchSpace = () => {
+  const { searchSpaces, isLoading, error } = useAppSelector(
+    (state) => state.searchSpaces
+  );
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(searchSpacesCreator());
+  }, []);
   return (
     <Wrapper>
       <section className={styles.container}>
@@ -18,35 +33,16 @@ export const SearchSpace = () => {
           </div>
         </div>
         <div className={styles.spaces}>
-          <SpaceCard name={"csdevsdf"} isPublic={true} username={"tgttttt"} />
-          <SpaceCard name={"gbfdgb gf"} isPublic={true} username={"asef"} />
-          <SpaceCard
-            name={"gfb dfgb"}
-            isPublic={true}
-            username={"tgtttsesevgtt"}
-          />
-          <SpaceCard name={"dgbdgb"} isPublic={true} username={"tgttttservt"} />
-          <SpaceCard
-            name={"csdedbgsebsvsdf"}
-            isPublic={true}
-            username={"serverv"}
-          />
-          <SpaceCard
-            name={"tfgbtbsertbrt"}
-            isPublic={true}
-            username={"servgre"}
-          />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
-          <SpaceCard
-            name={"rwbtwbwtb"}
-            isPublic={true}
-            username={"serggervg"}
-          />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
-          <SpaceCard name={"btebebe"} isPublic={true} username={"aegregse"} />
+          {isLoading && <Loading />}
+          {error && <div>{error}</div>}
+          {searchSpaces.map((space) => (
+            <SpaceCard
+              key={space.space_id}
+              name={space.name}
+              isPublic={true}
+              username={space.username}
+            />
+          ))}
         </div>
       </section>
     </Wrapper>

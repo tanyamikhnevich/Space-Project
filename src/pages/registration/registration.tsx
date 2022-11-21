@@ -1,8 +1,11 @@
 import React from "react";
-import styles from "./registration.module.scss";
 import { NavLink } from "react-router-dom";
-import { useAppSelector } from "../../features/hooks/hooks";
+
+import { useAppSelector } from "features/hooks/use-app-dispatch";
 import { RegisterForm } from "../../widgets/auth-form/register-form";
+
+import styles from "./registration.module.scss";
+import { Loading } from "../../widgets/loading/loading";
 
 export const Registration = () => {
   const { isLoading, error, message } = useAppSelector(
@@ -11,13 +14,15 @@ export const Registration = () => {
   return (
     <section className={styles.background}>
       <div className={styles.container}>
-        {isLoading && <div>Loading ... </div>}
+        {isLoading && <Loading />}
         {error && <div>{error}</div>}
         {message && <div>{message}</div>}
-        <RegisterForm />
-        <NavLink className={styles.registration} to="/login">
-          I have an account
-        </NavLink>
+        {!isLoading && <RegisterForm />}
+        {!isLoading && (
+          <NavLink className={styles.registration} to="/login">
+            I have an account
+          </NavLink>
+        )}
       </div>
     </section>
   );

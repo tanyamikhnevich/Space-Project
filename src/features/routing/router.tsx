@@ -1,12 +1,6 @@
 import { ReactNode } from "react";
-import {
-  Login,
-  MySpace,
-  Profile,
-  Registration,
-  SearchSpace,
-  Spaces,
-} from "../../pages";
+
+import { Login, Profile, Registration, SearchSpace, Spaces } from "../../pages";
 
 export interface Route {
   path: string;
@@ -21,7 +15,6 @@ export const publicRoutes: Array<Route> = [
 
 export const privateRoutes: Array<Route> = [
   { path: "/spaces", element: <Spaces />, default: true },
-  { path: "/myspace", element: <MySpace /> },
   { path: "/profile", element: <Profile /> },
   { path: "/search", element: <SearchSpace /> },
 ];

@@ -1,11 +1,10 @@
 import React from "react";
-import styles from "./auth-form.module.scss";
 import * as Yup from "yup";
 import { Field, Form, Formik, FormikHelpers } from "formik";
+
 import classNames from "classnames";
-import { login as actionLogin } from "../../store/auth/action-creators";
-import { useAppDispatch } from "../../features/hooks/hooks";
-import { yourSpaces } from "../../store/spaces/action-creators";
+import styles from "./auth-form.module.scss";
+import { useActions } from "features/hooks";
 
 const DisplayingErrorMessages = Yup.object().shape({
   email: Yup.string()
@@ -24,13 +23,13 @@ interface ValuesLog {
 }
 
 export const LoginForm = () => {
-  const dispatch = useAppDispatch();
+  const { login: actionLogin } = useActions();
 
   const login = (
     values: ValuesLog,
     { setSubmitting }: FormikHelpers<ValuesLog>
   ) => {
-    dispatch(actionLogin(values));
+    actionLogin(values);
     setSubmitting(false);
   };
 

@@ -1,8 +1,10 @@
-import { PopupContext } from "./popup-context";
 import React, { ReactNode, useEffect, useMemo, useState } from "react";
-import styles from "./popup.module.scss";
-import classNames from "classnames";
 import { createPortal } from "react-dom";
+
+import { PopupContext } from "./popup-context";
+
+import classNames from "classnames";
+import styles from "./popup.module.scss";
 
 interface Props {
   children: ReactNode;

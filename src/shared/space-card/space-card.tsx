@@ -1,7 +1,13 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+import { usePopup } from "../../features/popup";
+import { OneSpaceI } from "../../store/spaces/space-slice";
+import { SpaceFormEdit } from "../../widgets/space-form/space-form-edit";
+import { ReactComponent as Unlock } from "../assets/unlock.svg";
 import { ReactComponent as ThreePoints } from "../assets/threePoints.svg";
 import { ReactComponent as Lock } from "../assets/lock.svg";
-import { ReactComponent as Unlock } from "../assets/unlock.svg";
+
 import styles from "./space-card.module.scss";
 
 interface Props {
@@ -9,6 +15,7 @@ interface Props {
   username?: string;
   isPublic: boolean;
   isEditable?: boolean;
+  space?: OneSpaceI;
 }
 
 export const SpaceCard = ({
@@ -16,13 +23,20 @@ export const SpaceCard = ({
   username = "",
   isPublic,
   isEditable = false,
+  space,
 }: Props) => {
+  const { openPopup } = usePopup();
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
         <h2 className={styles.title}>{name}</h2>
-        {isEditable && (
-          <div className={styles.threePoints}>
+        {isEditable && space && (
+          <div
+            className={styles.threePoints}
+            onClick={() =>
+              openPopup(<SpaceFormEdit name={name} space={space} />)
+            }
+          >
             <ThreePoints />
           </div>
         )}
@@ -30,11 +44,11 @@ export const SpaceCard = ({
       <div className={styles.lockContainer}>
         {isPublic ? (
           <div className={styles.lock}>
-            <Lock />
+            <Unlock />
           </div>
         ) : (
           <div className={styles.lock}>
-            <Unlock />
+            <Lock />
           </div>
         )}
         {username && (

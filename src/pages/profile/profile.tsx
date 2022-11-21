@@ -1,8 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import { Wrapper } from "../../widgets/default-navbar/wrapper";
-import styles from "./profile.module.scss";
-import { useAppDispatch, useAppSelector } from "../../features/hooks/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../features/hooks/use-app-dispatch";
 import { logout } from "../../store/auth/auth-slice";
+
+import styles from "./profile.module.scss";
 
 export const Profile = () => {
   const { user } = useAppSelector((state) => state.auth);
@@ -19,11 +25,28 @@ export const Profile = () => {
         )}
         <div className={styles.settings}>
           <h2 className={styles.username}>Settings</h2>
-          <button className={styles.logOut}>Change password</button>
-          <button className={styles.logOut}>Change nickname</button>
-          <button className={styles.logOut} onClick={() => dispatch(logout())}>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={styles.logOut}
+          >
+            Change password
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={styles.logOut}
+          >
+            Change nickname
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={styles.logOut}
+            onClick={() => dispatch(logout())}
+          >
             Log out
-          </button>
+          </motion.button>
         </div>
       </section>
     </Wrapper>

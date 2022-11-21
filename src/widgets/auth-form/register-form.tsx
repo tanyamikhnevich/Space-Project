@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import styles from "./auth-form.module.scss";
+import React from "react";
 import * as Yup from "yup";
 import { Field, Form, Formik, FormikHelpers } from "formik";
+
 import classNames from "classnames";
-import { login as actionLogin } from "../../store/auth/action-creators";
-import { register as actionRegister } from "../../store/register/action-creators";
-import { useAppDispatch } from "../../features/hooks/hooks";
+import styles from "./auth-form.module.scss";
+import { useActions } from "../../features/hooks";
 
 const DisplayingErrorMessages = Yup.object().shape({
   email: Yup.string()
@@ -29,13 +28,13 @@ interface ValuesReg {
 }
 
 export const RegisterForm = () => {
-  const dispatch = useAppDispatch();
+  const { register: actionRegister } = useActions();
 
   const register = (
     values: ValuesReg,
     { setSubmitting }: FormikHelpers<ValuesReg>
   ) => {
-    dispatch(actionRegister(values));
+    actionRegister(values);
     setSubmitting(false);
   };
 
