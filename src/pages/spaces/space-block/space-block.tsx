@@ -1,37 +1,23 @@
 import React, { useEffect } from "react";
-import { AsyncThunkAction } from "@reduxjs/toolkit";
 import { motion } from "framer-motion";
 
-import { SpaceCard } from "../../../shared/space-card/space-card";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../features/hooks/use-app-dispatch";
-import {
-  additionalSpaces,
-  recentSpaces,
-  yourSpaces,
-  YourSpacesResponse,
-} from "../../../store/spaces/action-creators";
-import { OneSpaceI } from "../../../store/spaces/space-slice";
-import { Loading } from "../../../widgets/loading/loading";
+import { SpaceCard } from "shared/space-card/space-card";
 
 import styles from "./space-block.module.scss";
+import { useActions, useAppSelector } from "features/hooks";
 
-interface Props {
-  title: string;
-  spaces: OneSpaceI[];
-  spacesDispatch: any;
-}
-
-export const SpacesBlock = ({ title, spaces, spacesDispatch }: Props) => {
-  const { error, isLoading } = useAppSelector((state) => state.yourSpaces);
-  const dispatch = useAppDispatch();
+export const SpacesBlock = () => {
+  const { getYourSpaces, getRecentSpaces, getAdditionalSpaces } = useActions();
+  const { yourSpaces } = useAppSelector((state) => state.yourSpaces);
+  const { recentSpaces } = useAppSelector((state) => state.recentSpaces);
+  const { additionalSpaces } = useAppSelector(
+    (state) => state.additionalSpaces
+  );
 
   useEffect(() => {
-    dispatch(yourSpaces());
-    dispatch(recentSpaces());
-    dispatch(additionalSpaces());
+    getYourSpaces();
+    getRecentSpaces();
+    getAdditionalSpaces();
   }, []);
 
   const motionsCard = {
@@ -43,43 +29,62 @@ export const SpacesBlock = ({ title, spaces, spacesDispatch }: Props) => {
   };
   return (
     <div className={styles.taskContainer}>
-      <h2 className={styles.title}>{title}</h2>
+      <h2 className={styles.title}>Recent spaces</h2>
       <div className={styles.cardContainer}>
-        {isLoading && <Loading />}
-        {error && <div>{error}</div>}
-        {title === "Your spaces"
-          ? spaces.map((space) => (
-              <motion.div
-                initial={"hidden"}
-                animate={"visible"}
-                variants={motionsCard}
-                custom={space.id}
-                key={space.id}
-              >
-                <SpaceCard
-                  name={space.name}
-                  isPublic={space.isPublic}
-                  isEditable={true}
-                  space={space}
-                />
-              </motion.div>
-            ))
-          : spaces.map((space) => (
-              <motion.div
-                initial={"hidden"}
-                animate={"visible"}
-                variants={motionsCard}
-                custom={space.id}
-                key={space.id}
-              >
-                <SpaceCard
-                  name={space.name}
-                  isPublic={space.isPublic}
-                  isEditable={false}
-                  username={space.username}
-                />
-              </motion.div>
-            ))}
+        {recentSpaces.map((space) => (
+          <motion.div
+            initial={"hidden"}
+            animate={"visible"}
+            variants={motionsCard}
+            custom={space.id}
+            key={space.id}
+          >
+            <SpaceCard
+              name={space.name}
+              isPublic={space.isPublic}
+              isEditable={false}
+              username={space.username}
+            />
+          </motion.div>
+        ))}
+      </div>
+      <h2 className={styles.title}>Your spaces</h2>
+      <div className={styles.cardContainer}>
+        {yourSpaces.map((space) => (
+          <motion.div
+            initial={"hidden"}
+            animate={"visible"}
+            variants={motionsCard}
+            custom={space.id}
+            key={space.id}
+          >
+            <SpaceCard
+              name={space.name}
+              isPublic={space.isPublic}
+              isEditable={true}
+              space={space}
+            />
+          </motion.div>
+        ))}
+      </div>
+      <h2 className={styles.title}>Additional spaces</h2>
+      <div className={styles.cardContainer}>
+        {additionalSpaces.map((space) => (
+          <motion.div
+            initial={"hidden"}
+            animate={"visible"}
+            variants={motionsCard}
+            custom={space.id}
+            key={space.id}
+          >
+            <SpaceCard
+              name={space.name}
+              isPublic={space.isPublic}
+              isEditable={false}
+              username={space.username}
+            />
+          </motion.div>
+        ))}
       </div>
     </div>
   );

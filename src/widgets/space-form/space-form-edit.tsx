@@ -3,12 +3,9 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 
 import { usePopup } from "../../features/popup";
-import { useAppDispatch } from "../../features/hooks/use-app-dispatch";
-import {
-  changeSpace,
-  OneSpaceI,
-  removeSpace,
-} from "../../store/spaces/space-slice";
+import { useAppDispatch } from "features/hooks/use-app-dispatch";
+import { OneSpaceI } from "../../store/spaces/space-slice";
+import { changeSpace, removeSpace } from "entites/spaces/yours/state/slice";
 import { TagsBlock, TypesBlock, MembersBlock } from "./../index";
 
 import styles from "./space-form.module.scss";

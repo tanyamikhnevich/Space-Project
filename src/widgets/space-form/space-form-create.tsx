@@ -3,8 +3,8 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 
 import { usePopup } from "../../features/popup";
-import { useAppDispatch } from "../../features/hooks/use-app-dispatch";
-import { addSpaces } from "../../store/spaces/space-slice";
+import { useAppDispatch } from "features/hooks/use-app-dispatch";
+import { addSpaces } from "entites/spaces/yours/state/slice";
 import { MembersBlock, TypesBlock, TagsBlock } from "./../index";
 
 import styles from "./space-form.module.scss";

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Login, Profile, Registration, SearchSpace, Spaces } from "../../pages";
+import { Login, Profile, Registration, SearchSpace, Spaces } from "pages";
 
 export interface Route {
   path: string;

@@ -5,8 +5,8 @@ import { Wrapper } from "../../widgets/default-navbar/wrapper";
 import {
   useAppDispatch,
   useAppSelector,
-} from "../../features/hooks/use-app-dispatch";
-import { logout } from "../../store/auth/auth-slice";
+} from "features/hooks/use-app-dispatch";
+import { logout } from "entites/auth/state/slice";
 
 import styles from "./profile.module.scss";
 

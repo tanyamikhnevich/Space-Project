@@ -7,7 +7,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "features/hooks/use-app-dispatch";
-import { setup } from "store/auth/auth-slice";
+import { setup } from "entites/auth/state/slice";
 
 import styles from "./app.module.scss";
 import "./styles/index.scss";

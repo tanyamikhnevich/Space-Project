@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
 
-import { Wrapper } from "../../widgets/default-navbar/wrapper";
-import { SpaceCard } from "../../shared/space-card/space-card";
-import { Tag } from "../../widgets/tags-block/tags/tag";
-import { AddTag } from "../../widgets/tags-block/tags/add-tag";
+import { Wrapper } from "widgets/default-navbar/wrapper";
+import { SpaceCard } from "shared/space-card/space-card";
+import { Tag } from "widgets/tags-block/tags/tag";
+import { AddTag } from "widgets/tags-block/tags/add-tag";
 import {
   useAppDispatch,
   useAppSelector,
-} from "../../features/hooks/use-app-dispatch";
-import { searchSpaces as searchSpacesCreator } from "../../store/spaces/action-creators";
+} from "features/hooks/use-app-dispatch";
 
 import styles from "./search-space.module.scss";
-import { Loading } from "../../widgets/loading/loading";
+import { Loading } from "widgets/loading/loading";
+import { useActions } from "features/hooks";
 
 export const SearchSpace = () => {
   const { searchSpaces, isLoading, error } = useAppSelector(
     (state) => state.searchSpaces
   );
-  const dispatch = useAppDispatch();
+  const { getSearchSpaces } = useActions();
+
   useEffect(() => {
-    dispatch(searchSpacesCreator());
+    getSearchSpaces();
   }, []);
   return (
     <Wrapper>

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 import { usePopup } from "../../features/popup";
 import { OneSpaceI } from "../../store/spaces/space-slice";
